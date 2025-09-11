@@ -5,24 +5,27 @@
 > [**CycleACR: Cycle Modeling of Actor-Context Relations for Video Action Detection**](https://arxiv.org/abs/2303.16118)<br>[Lei Chen](https://github.com/MiaSanLei), [Zhan Tong](https://github.com/yztongzhan), [Yibing Song](https://ybsong00.github.io/), Gangshan Wu, [Limin Wang](http://wanglimin.github.io/)<br>
 
 ## News
+- ```2025.09.11``` The code and weights for VideoMAE-ViT-L backbone are [available](VideoMAE-Action-Detection/)!
 - ```2025.08.11``` Code and pre-trained models are available now!
 - ```2025.07.30``` Our CycleACR is accepted by T-PAMI 2025! 🎉
 
 ## Installation 
 
-Please find installation instructions in [INSTALL.md](INSTALL.md).
+- For **SlowFast** backbone: Please follow the installation instructions in [INSTALL.md](INSTALL.md).
+- For **VideoMAE** backbone: Please refer to [VideoMAE-Action-Detection/INSTALL.md](VideoMAE-Action-Detection/INSTALL.md) for installation instructions.
 
 ## Data Preparation
 
-Please follow the instructions in [AlphAction DATA.md](https://github.com/MVIG-SJTU/AlphAction/blob/master/DATA.md) to prepare AVA dataset.
+Both backbones share the same data preparation process. Please follow the instructions in [VideoMAE-Action-Detection/DATASET.md](VideoMAE-Action-Detection/DATASET.md) to prepare the AVA dataset.
 
 ## Model Zoo
 
 | method    | config                                               | backbone          | pre-train                                                    | AVA mAP  | model                                                        |
 | --------- | ---------------------------------------------------- | ----------------- | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
 | CycleACR  | [cfg](config_files/slowfast_r101_8x8f_cycleacr.yaml) | SlowFast-R101-8x8 | [K700](https://drive.google.com/file/d/1JDQLyyL-GFd3qi0S31Mdt5oNmUXnyJza/view) | 34.0 | [link](https://huggingface.co/MiaSanLei/cycleacr_slowfast_r101_8x8) |
+| CycleACR  | [script](VideoMAE-Action-Detection/scripts/ava/videomae_vit_large_k700_pretrain+finetune/run.sh) | VideoMAE-ViT-L | [K700](https://huggingface.co/MiaSanLei/videomae-vitl-k700-16x4) | 40.6 | [link](https://huggingface.co/MiaSanLei/cycleacr_videomae_vit_large_k700_pretrain_finetune) |
 
-Note: The code and weights for VideoMAE-ViT-L backbone will be released soon.
+Note: The fine-tuning instruction for VideoMAE-ViT-L backbone is in [FINETUNE.md](VideoMAE-Action-Detection/FINETUNE.md).
 
 ## Training
 
